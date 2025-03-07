@@ -1,0 +1,6 @@
+{
+    "watch": ["src"],
+    "ext": "ts",
+    "ignore": ["src/drizzle/schema"],
+    "exec": "tsc && node dist/server.js"
+}
