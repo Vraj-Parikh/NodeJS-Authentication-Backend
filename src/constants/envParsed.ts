@@ -1,5 +1,6 @@
 import { z } from 'zod'
 const environmentSchema = z.object({
+    ENV: z.string().nonempty(),
     PORT: z.number(),
     BCRYPT_SALT_ROUNDS: z.number(),
     DATABASE_URL: z.string().nonempty(),
@@ -11,6 +12,7 @@ const environmentSchema = z.object({
 function parseEnvironmentVariables() {
     try {
         const environmentVariables = {
+            ENV: process.env.ENV,
             PORT: parseInt(process.env.PORT!),
             BCRYPT_SALT_ROUNDS: parseInt(process.env.BCRYPT_SALT_ROUNDS!),
             DATABASE_URL: process.env.DATABASE_URL,
